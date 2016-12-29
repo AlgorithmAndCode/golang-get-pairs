@@ -2,7 +2,6 @@ package pairs
 
 import (
 	"sync"
-	"fmt"
 )
 
 type StructForPairs struct {
@@ -28,8 +27,6 @@ func GetPairsThatMatchesSum(pairs StructForPairs) (bool, []int64) {
 	go searchFromLow(found, values, values_found, pairs, values_until_sum)
 	go searchFromHigh(found, values, values_found, pairs, values_until_sum)
 	wg.Wait()
-	fmt.Printf("is found? %v ", *values_found)
-	fmt.Printf("values %v ", *values)
 
 	return *values_found, *values
 }
